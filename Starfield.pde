@@ -1,13 +1,19 @@
-Particle bob;
+Particle[] bob;
 void setup()
 {
   size(1000,1000);
-  bob = new Particle();
+  bob = new Particle[250];
+  for (int x = 0; x <= bob.length - 1; x++) {
+    bob[x] = new Particle();
+  }
 }
 void draw()
 {
-  bob.move();
-  bob.show();
+  background(#EAD7D7);
+  for (int x = 0; x <= bob.length - 1; x =  x + 1) {
+    bob[x].show();
+    bob[x].move();
+  }
 }
 class Particle
 {
