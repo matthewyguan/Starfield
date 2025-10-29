@@ -19,7 +19,7 @@ void draw()
 }
 class Particle
 {
-  double myX, myY, myA, myS;
+  double myX, myY, myA, myS, cool;
   int myC;
   Particle() {
     myX = 500;
@@ -46,15 +46,17 @@ class Particle
 
 class OddballParticle extends Particle//inherits from Particle
 {
+  
   OddballParticle() {
     myX = 500;
     myY = 500;
     myC = color((int)(Math.random()*256),(int)(Math.random()*256),(int)(Math.random()*256));
     myA = 0;
-    myS = Math.random()*2 + 1;
+    myS = 2;
   }
   void funny() {
-    myA += Math.PI/128;
+    cool = Math.sqrt((myX-500)*(myX-500) + (myY-500)*(myY-500));
+    myA = cool;
   }
   void show() {
     fill(myC);
